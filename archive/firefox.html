@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Firefox</title>
+
+<script>
+
+var scripts = document.getElementsByTagName('script')
+    ,script = scripts[scripts.length - 1]
+    ;
+
+
+    img = new Image();
+    img.alt="asdkjhaskdjhasdkjhasdkjhasd";
+    script.parentNode.insertBefore(img, script);
+
+
+var iShouldBeInThe = 'headElement'
+    ,butIm = '?'
+    ;
+    
+</script>
+
+</head>
+<body>
+<h1>Firefox</h1>
+
+
+<div id="test">test<br /></div>
+<script>
+
+
+    var test = document.getElementById('test');
+    
+    img.onload = function(e) {
+        test.innerHTML += 'onload<br />';
+    };
+    
+    img.onerror = function(e) {
+        test.innerHTML += 'onerror<br />';
+    };
+    
+    img.src="beach.jpg";
+
+</script>
+
+<h2>Test</h2>
+<p>Image source is an image relative to the document</p>
+
+<h2>Outcome</h2>
+<p>Images on: Firefox fires onload</p>
+<p>Images on: Firefox fires onerror</p>
+
+</body>
+</html>

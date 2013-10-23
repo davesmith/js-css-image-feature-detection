@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Image Detect</title>
+
+<img src="clear.gif" />
+<script>
+
+    
+    // Script
+    (function() {
+
+    
+        var head = document.getElementsByTagName('head')[0]
+            ,scripts = document.getElementsByTagName('script')
+            ,script = scripts[scripts.length - 1]
+            ,overflowAuto = 'auto'
+            ,overflowActual
+            ,img = new Image()
+            ,documentElement = document.documentElement
+            ;
+        
+        
+        
+        // CSS
+        
+        // Set a script element with an overflow of 'auto'
+        script.style.overflow = overflowAuto;
+        
+        // Get the actual overflow applied
+    	if (document.defaultView) {
+    		overflowActual = document.defaultView.getComputedStyle(script,null).getPropertyValue('overflow');
+    	}
+    	else {
+    		overflowActual = script.currentStyle['overflow'];
+        }
+    	
+    	// CSS is on if the set and actual values are the same
+    	if (overflowActual == overflowAuto) {
+        	documentElement.className = documentElement.className + ' css';
+    	}
+    	
+    
+        
+        
+        
+        // Images
+        
+        // Try a dataURI transparent pixel image first
+        img.style.position = 'absolute';
+        img.style.left = '-9999px';
+        
+        // img.onload is run immediately for browsers that support dataURI
+        img.onload = function() {
+            if (this.width == 1) {
+                documentElement.className = documentElement.className + ' images datauri';
+            }
+        };
+        
+        // Prepare a fallback if dataURI is not supported
+        fallback = function() {
+            img = new Image();
+            img.style.position = 'absolute';
+            img.style.left = '-9999px';
+            img.onload = function() {
+                if (this.width == 1) {
+                    documentElement.className = documentElement.className + ' images';
+                }
+            };
+            img.src = 'clear.gif';
+            script.parentNode.insertBefore(img, script);
+        };
+        img.onerror = fallback;
+        
+        // Set the src with the 1 pixel transparent dataURI image
+        img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+    	
+    	
+    	
+    	// JS
+        documentElement.className = documentElement.className.replace(/\bno-js\b/g, 'js');
+    
+    
+        
+    }());
+    
+</script>
+
+<style>
+body {padding:20px;}
+ul.indicators {overflow:hidden;padding:0;margin:0 0 20px 0;}
+li.js,
+li.css,
+li.images,
+li.datauri {background:#f99;float:left;list-style-type:none;padding:20px;margin:0 20px 0 0;}
+
+.js .js,
+.images .images,
+.css .css,
+.datauri .datauri {background:#9f9;}
+
+</style>
+
+</head>
+
+<body>
+<h1>Image Detect</h1>
+<p>Script that adds a class when JS, Images or CSS is on. The original purpose was to have a good JS solution for Image Replacement</p>
+<div id="test2">a</div>
+<div id="test">a</div>
+<script>    
+    //Flag to stop rectangle from spinning. 
+    var spin;
+    document.namespaces.add('v', 'urn:schemas-microsoft-com:vml', "#default#VML");
+    // Create element in memory. 
+    var r = document.createElement("v:rect");
+    // Define width, height, color, and unique ID.
+    r.fillcolor = "blue";
+    r.strokecolor = "red";
+    r.strokeweight = "5";
+    r.style.width = "20px";
+    r.style.height = '20px';
+    r.style.left = '500';
+    r.style.top = '200';
+    r.style.position = 'absolute';
+    r.style.opacity = '0.2';
+    r.id = "myRect";
+    // Attach rectangle to the document at the  the specified Div. 
+    var test = document.getElementById('test');
+    test.parentNode.insertBefore(r, test);
+    
+    var test2 = document.getElementById('test2');
+    var str = '';
+    for (var i in r) {
+        str += i + '='+r[i]+'<br />';
+    }
+    
+//    test2.innerHTML = r.offsetWidth + r.currentStyle['width'];// + ' ' + r.width;
+    test2.innerHTML = str;
+
+</script>
+<ul class="indicators">
+<li class="js">JS</li>
+<li class="css">CSS</li>
+<li class="images">Images</li>
+<li class="datauri">DataURI</li>
+</ul>
+<pre style="clear:both;">&lt;html class="<span id="output">no-js</span>"&gt;</pre>
+<script>
+    var span = document.getElementById('output')
+        ,interval = 300
+        ,fn = function() {
+            span.innerHTML = document.documentElement.className;
+            setTimeout(fn, interval);
+        }
+    ;
+    fn();
+    setTimeout(fn, interval);
+</script>
+
+<h2>Disable CSS</h2>
+<ul>
+<li><a href="http://developer.yahoo.com/blogs/ydn/temporarily-disable-css-testing-53538.html">Disable CSS</a></li>
+<li>Web Accessibility Toolbar allowed testing in IE 6+</li>
+</ul>
+
+<h2>Disable Images</h2>
+<ul>
+<li><a href="https://addons.mozilla.org/en-us/firefox/addon/quickjava/?src=search">Disable Images in Firefox</a></li>
+<li>Disabled Images in IE using Web Accessibility Toolbar</li>
+<li>Chrome: Settings and search for image</li>
+</ul>
+
+<h2>Research</h2>
+<ul><li><a href="http://www.html5accessibility.com/tests/imagecheck.html">Image check by Steve Faulkner</a></li>
+<li><a href="http://www.quirksmode.org/dom/getstyles.html">Get Styles by PPK</a></li>
+<li><a href="http://css-tricks.com/snippets/html/base64-encode-of-1x1px-transparent-gif/">Base64 single pixel</a>, thanks!</li>
+<li><a href="http://jonraasch.com/blog/css-data-uris-in-all-browsers">CSS Data URIs in all browsers, very nice!</a></li>
+</ul>
+
+<h2>Browser Compatibility</h2>
+<ul>
+    <li>Firefox
+        <ul>
+            <li>24
+                <ul>
+                    <li>Images: No and yes, turning off images is actually turning off images loaded via URL, so dataURI images still show, there is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=331257">bug report</a></li>
+                    <li>CSS: Yes</li>
+                </ul>                
+            </li>
+            <li>3.6
+                <ul>
+                    <li>Images: Couldn't test but suspect has same issue as version 24</li>
+                    <li>CSS: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Chrome
+        <ul>
+            <li>30
+                <ul>
+                    <li>Images: Yes</li>
+                    <li>CSS: Couldn't find the CSS off switch</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Opera
+        <ul>
+            <li>17
+                <ul>
+                    <li>Images: Yes</li>
+                    <li>CSS: Couldn't find the CSS off switch</li>
+                </ul>
+            </li>
+            <li>12
+                <ul>
+                    <li>Images: Yes</li>
+                    <li>CSS: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Safari
+        <ul>
+            <li>6
+                <ul>
+                    <li>Images: Yes</li>
+                    <li>CSS: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>IE
+        <ul>
+            <li>6
+                <ul>
+                    <li>Images: Yes, clear.gif loaded instead of dataURI</li>
+                    <li>CSS: Yes</li>
+                </ul>
+            </li>
+            <li>7
+                <ul>
+                    <li>Images: Yes, I assume it would use the clear.gif but when testing using Developer Toolbar in IE 10 it said it was dataURI</li>
+                    <li>CSS: Yes</li>
+                </ul>
+            </li>
+            <li>8+ using Developer Toolbar in IE 10
+                <ul>
+                    <li>Images: Yes</li>
+                    <li>CSS: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<h2>Adding an image into the head element</h2>
+<p>Normally if an image is put in the head element, the DOM is built in a way that immediately before the image the head element is closed and the body element opened. I've confirmed this in IE6 and Firefox 24, see <a href="headimage.html">headimage.html</a>.</p>
+<p><a href="headimagedynamic.html">headimagedynamic.html</a> However, if the image is dynamically added the result is different</p>
+<h2>Control Image</h2>
+<p><img src="beach.jpg" alt="Test Sunny Beach Image" /></p>
+</body>
+</html>

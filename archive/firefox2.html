@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Firefox</title>
+
+<script>
+
+var scripts = document.getElementsByTagName('script')
+    ,script = scripts[scripts.length - 1]
+    ;
+
+
+    img = new Image();
+    img.alt="asdkjhaskdjhasdkjhasdkjhasd";
+    script.parentNode.insertBefore(img, script);
+
+
+var iShouldBeInThe = 'headElement'
+    ,butIm = '?'
+    ;
+    
+</script>
+
+</head>
+<body>
+<h1>Firefox</h1>
+
+
+<div id="test">test<br /></div>
+<script>
+
+
+    var test = document.getElementById('test');
+    var s = '1';
+    img.onload = function(e) {
+        test.innerHTML += 'onload<br />';
+        s = '2';
+    console.log(s);
+    };
+    
+    img.onerror = function(e) {
+        test.innerHTML += 'onerror<br />';
+        s = '3';
+    console.log(s);
+    };
+    img.width = -1;
+    img.src = 'flksadf://sadf.jpg';
+    console.log(s);
+</script>
+
+<h2>Test</h2>
+<p>Image source is deliberately set to fail</p>
+
+<h2>Outcome</h2>
+<p>Images on, Firefox fires onerror</p>
+<p>Images off, Firefox fires onerror</p>
+
+</body>
+</html>

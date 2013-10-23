@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+<title>Image Detect</title>
+
+<script>
+</script>
+
+</head>
+
+<body>
+<script>
+    
+    // CSS
+    var cssOn = false;
+    
+    var head = document.getElementsByTagName('head')[0];
+    head.style.overflow = 'auto';
+    
+    var y;
+    if (head.currentStyle) {
+		y = head.currentStyle['overflow'];
+    }
+	else if (window.getComputedStyle) {
+		y = document.defaultView.getComputedStyle(head,null).getPropertyValue('overflow');
+	}
+	if (y == 'auto') {
+    	cssOn = true;
+	}
+//	console.log(cssOn);
+
+    // Images
+    var scripts = document.getElementsByTagName('script');
+    var script = scripts[scripts.length - 1];
+    var img = (document.createElement) ? document.createElement('img') : new Image();
+    img.src = 'clear.gif';
+    img.style.position = 'absolute';
+    img.style.left = '-9999px';
+    img.onload = function() {
+        if (this.offsetWidth == 1) {
+            
+            (function(C) {
+                C.className = C.className+' images-on';
+            }(document.documentElement))
+        }
+    };
+    script.parentNode.insertBefore(img, script);
+	
+	// JS
+    (function(C) {
+        var cssClass = '';
+        if (cssOn) {
+            cssClass = ' css-on';
+        }
+        C.className = C.className.replace(/\bno-js\b/g,'') + ' js'+cssClass;
+    }(document.documentElement))
+    
+    
+</script>
+<p>Script that adds a class when JS, Images or CSS is on. The original purpose was to have a good JS solution for Image Replacement</p>
+<p>
+Disable CSS <a href="http://developer.yahoo.com/blogs/ydn/temporarily-disable-css-testing-53538.html">http://developer.yahoo.com/blogs/ydn/temporarily-disable-css-testing-53538.html</a>
+Web Accessibility Toolbar allowed testing in IE 6+
+<br />
+Image check by Steve Faulkner <a href="http://www.html5accessibility.com/tests/imagecheck.html">http://www.html5accessibility.com/tests/imagecheck.html</a>
+<br />
+Get Styles by PPK <a href="http://www.quirksmode.org/dom/getstyles.html">http://www.quirksmode.org/dom/getstyles.html</a>
+<br />
+Disable Images in Firefox <a href="https://addons.mozilla.org/en-us/firefox/addon/quickjava/?src=search">https://addons.mozilla.org/en-us/firefox/addon/quickjava/?src=search</a>
+Disable Images in IE with IE Developer Toolbar
+</p>
+<p>Works with: Firefox, IE 6+, Safari 6</p>
+
+</body>
+</html>

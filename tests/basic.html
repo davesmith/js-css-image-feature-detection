@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>DataURI Image Test</title>
+
+
+<style>
+body {padding:0 40px 40px 40px;margin:0;}
+p {margin-top:0;}
+h1 {margin-bottom:0;}
+</style>
+
+</head>
+
+<body>
+<p><a href="../">JS, CSS and Image Feature Detection</a></p>
+<h1>DataURI Image Test</h1>
+<p>Test to see what happens when loading a DataURI image with images off and on</p>
+<textarea id="output" autofocus></textarea>
+<script>
+
+    var db = {};
+    db.event = 'no event called';
+    db.width = 'n/a';
+    db.naturalWidth = 'n/a';
+    db.offsetWidth = 'n/a';
+    
+    var html = '';
+    var span = document.getElementById('output');
+    span.rows = 5;
+    span.cols = 60;
+    var tid;
+    span.onclick = function() {
+        clearTimeout(tid);
+    };
+    
+    var output = function(called) {
+        html = db.event;
+        if (db.event == 'onload') {
+            html += "\n";
+            html += 'width:'+db.width+"\n";
+            html += 'offsetWidth:'+db.offsetWidth+"\n";
+            html += 'naturalWidth:'+db.naturalWidth;
+        }
+        span.value = html;
+        tid = setTimeout(output, 200);
+    };
+    
+    
+    var img = new Image();
+    
+    img.onload = function() {
+    
+        db.event = 'onload';
+        db.width = this.width;
+        db.naturalWidth = this.naturalWidth;
+        db.offsetWidth = this.offsetWidth;
+        
+        
+    };
+    
+    img.onerror = function() {
+    
+        db.event = 'onerror';
+        
+    };
+    
+    
+    // Try a 1 pixel transparent DataURI image
+    img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+    
+    
+    output();
+    
+    
+</script>
+
+
+</body>
+</html>

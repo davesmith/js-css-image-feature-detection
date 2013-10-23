@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Image Replacement</title>
+<!--[if lte IE 7]>
+<style type="text/css">
+.zir {
+   text-indent:-9000px;
+}
+</style>
+<![endif]-->
+
+<style>
+.zir {
+	width:200px; /* height of replacement image */
+	height:100px; /* height of replacement image */
+	background:url(image.jpg) no-repeat 0 0;
+
+	display:inline-block;/* most of the time it's going to be an inline block that we'll need, like the way images are */
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	position:relative;
+
+		display:block; /*Fixed IE7*/
+}
+.zir:before {
+	display:inherit;
+	background:inherit;
+		background:#f00;
+	width:inherit;
+	height:inherit;
+	content:" content text";
+	position:relative;
+	z-index:2;
+}
+.zir:after {
+	display:block;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1;
+	content:attr(title);
+}
+.column {
+	float:left;
+	width:300px;
+}
+</style>
+</head>
+
+<body>
+<p>IE lte 7 do not support inherit. IE8 + does.</p>
+<p>IE lte 7 do not support before pseudo elements. IE8+ does</p>
+<p>Need to use a light background image in case the alternate text cannot be styled to white</p>
+<div class="column">
+  <div class="ir1"> <a href="" class="zir" title="Title Text">Content Text</a> <span class="zir" title="Title Text">Content Text</span>
+    <div class="zir" title="Title Text">Content Text</div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Image marked-up in the head element</title>
+
+<img src="clear.gif" />
+
+<script>var iShouldBeInThe = 'headElement'
+    ,butIm = 'not'
+;</script>
+
+</head>
+<body>
+<h1>Image marked-up in the head element</h1>
+
+<h2>Outcome</h2>
+<p>Yes is the expected outcome where the DOM is created with the head element closed and the body element opened before the img</p>
+<ul>
+    <li>Firefox
+        <ul>
+            <li>24
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Internet Explorer
+        <ul>
+            <li>6
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    
+</ul>
+
+</body>
+</html>

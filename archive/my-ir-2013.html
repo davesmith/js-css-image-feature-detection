@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Image Replacement</title>
+<!--[if lte IE 7]>
+<style type="text/css">
+.zir {
+   text-indent:-9000px;
+}
+</style>
+<![endif]-->
+
+<style>
+
+.zir {width:32px;}
+
+.zir img {
+	border:0; /* to get rid of image link borders*/
+	display:block; /* display block for IE7 and less */
+	background:url(image.jpg) no-repeat 0 0;
+}
+.zir span {display:none;}
+
+
+
+
+
+.column {
+	float:left;
+	width:300px;
+}
+
+.shit {content:url(image.jpg);display:block;}
+</style>
+</head>
+
+<body>
+  <div class="shit">asdjhasdjhgasd</div>
+<p>IE lte 7 do not support inherit. IE8 + does.</p>
+<p>IE lte 7 do not support before pseudo elements. IE8+ does</p>
+<p>Need to use a light background image in case the alternate text cannot be styled to white</p>
+<div class="column">
+  
+  <div><a href="#" class="zir"><span>Text</span><img src="ir.gif" alt="" /></a></div>
+  
+  
+</div>
+</body>
+</html>

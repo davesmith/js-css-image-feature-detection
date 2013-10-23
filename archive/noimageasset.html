@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Image dynamically added to the head element</title>
+
+<script>
+
+var scripts = document.getElementsByTagName('script')
+    ,script = scripts[scripts.length - 1]
+    ;
+
+
+    img = new Image();
+    img.alt="asdkjhaskdjhasdkjhasdkjhasd";
+    script.parentNode.insertBefore(img, script);
+
+
+var iShouldBeInThe = 'headElement'
+    ,butIm = '?'
+    ;
+    
+</script>
+
+</head>
+<body>
+<h1>Image dynamically added to the head element</h1>
+
+
+<div id="test">a</div>
+<script>
+
+
+    var test = document.getElementById('test');
+    
+    img.onerror = function(e) {
+        test.innerHTML = 'onerror called';
+    };
+    
+    img.src="nonsense://path";
+
+</script>
+
+<h2>Outcome</h2>
+<p>Yes: When img.onerror is called only when images are on</p>
+<ul>
+    <li>Chrome
+        <ul>
+            <li>30
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Firefox
+        <ul>
+            <li>24
+                <ul>
+                    <li>No</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Internet Explorer
+        <ul>
+            <li>6, 10 (and 7,8,9 in dev toolbar)
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Opera
+        <ul>
+            <li>17, 12.14, 11.64, 10.63
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Safari
+        <ul>
+            <li>6
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    
+</ul>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>JS, CSS and Image Feature Detection</title>
+
+</head>
+
+<body>
+<h1>JS, CSS and Image Feature&nbsp;Detection</h1>
+<p class="kwn"><strong>JavaScript that detects JS, CSS and Images in the user's browser</strong>.</p>
+<p>On page load, tests are made for each feature and classes added to the html element.</p>
+
+<h2>Download</h2>
+<p>Version 1.0 <a href="js-css-image-feature-detection-1.0.src.js">source</a>, <a href="js-css-image-feature-detection-1.0.js">minified</a></p>
+
+<h2>Usage</h2>
+<p class="kwn">Add a no-js class to the html element:</p>
+<pre>&lt;html class="no-js"&gt;</pre>
+<p class="kwn">Add the script:</p>
+<pre>&lt;script src="js-css-image-feature-detection-1.0.js"&gt;&lt;/script&gt;</pre>
+<p class="kwn">Script and style stuff based on the detected features:</p>
+<pre>&lt;html class="js css images datauri"&gt;</pre>
+
+<h2>Testing</h2>
+<ul>
+<li><a href="tests/">Main Test</a></li>
+<li><a href="tests/basic.html">DataURI Image Test</a></li>
+</ul>
+
+<h2>Notes</h2>
+<p>The script's focus was to provide image detection as immediately as possible without the need insert an image 
+into the DOM, wait on images loading or produce extra http requests.</p>
+<p>The script is just your regular JavaScript and relies on no other scripts or frameworks.</p>
+
+<h2>How it works</h2>
+<p>Most browsers I tested fire the onload or onerror events when images are on, and don't when images are off. And this is the starting point for the image detection used in this script.</p>
+<p>I used the DataURI scheme to load a 1 pixel transparent image for browsers that support it, avoiding http requests, and for those that don't the onerror event is fired.</p>
+<p>Beyond that it was about accommodating browsers that fall outside the norm.</p>
+
+<h2>Browser Compatibility</h2>
+<p>Yes means works as expected</p>
+<ul>
+    <li>Android Browser
+        <ul>
+            <li>2.3.5, 4.1.2
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Couldn't find the CSS off switch</li>
+                    <li>Images: Yes</li>
+                    <li>DataURI: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Chrome
+        <ul>
+            <li>30
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Couldn't find the CSS off switch, but assume would work as Safari works</li>
+                    <li>Images: Yes</li>
+                    <li>DataURI: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Firefox
+        <ul>
+            <li>24
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Yes</li>
+                    <li>Images: Yes. Note that turning off images in Firefox turns off images loaded via URL so dataURI images still show, there is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=331257">bug report</a></li>
+                    <li>DataURI: Yes</li>
+                </ul>                
+            </li>
+            <li>3.6
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Yes</li>
+                    <li>Images: Couldn't find on/off</li>
+                    <li>DataURI: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>IE
+        <ul>
+            <li>10 (and 7, 8 and 9 with Developer Toolbar)
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Yes</li>
+                    <li>Images: Yes</li>
+                    <li>DataURI: Yes</li>
+                </ul>
+            </li>
+            <li>6, 7
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Yes</li>
+                    <li>Images: Yes</li>
+                    <li>DataURI: Yes (not supported in browser)</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Opera
+        <ul>
+            <li>17
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Couldn't find the CSS off switch, but as Opera is now Webkit I assume would work as Safari works</li>
+                    <li>Images: Yes</li>
+                    <li>DataURI: Yes</li>
+                </ul>
+            </li>
+            <li>12.14, 11.64, 10.63
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Yes</li>
+                    <li>Images: Yes</li>
+                    <li>DataURI: ?</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Opera Mini
+        <ul>
+            <li>7 (online Simulator)
+                <ul>
+                    <li>JS: Couldn't find on/off</li>
+                    <li>CSS: Couldn't find on/off</li>
+                    <li>Images: No. When images are off, images on is indicated. Caused by the onload event being called when images are on and off</li>
+                    <li>DataURI: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Opera Mobile
+        <ul>
+            <li>12 (emulator)
+                <ul>
+                    <li>JS: Couldn't find on/off</li>
+                    <li>CSS: Couldn't find on/off</li>
+                    <li>Images: Yes</li>
+                    <li>DataURI: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Safari
+        <ul>
+            <li>6
+                <ul>
+                    <li>JS: Yes</li>
+                    <li>CSS: Yes</li>
+                    <li>Images: Yes</li>
+                    <li>DataURI: Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+<h2>Thanks</h2>
+<ul>
+<li><a href="http://www.html5accessibility.com/tests/imagecheck.html">Image check by Steve Faulkner</a></li>
+<li><a href="http://www.quirksmode.org/dom/getstyles.html">Get Styles by PPK</a></li>
+<li><a href="http://css-tricks.com/snippets/html/base64-encode-of-1x1px-transparent-gif/">Base64 single pixel</a></li>
+<li><a href="http://jonraasch.com/blog/css-data-uris-in-all-browsers">CSS Data URIs in all browsers, very nice!</a></li>
+<li><a href="http://caniuse.com/datauri">Can I Use DataURI</a></li>
+</ul>
+
+<p>Three men walk into a bar, one falls over, a monkey swings triumphantly</p>
+
+</body>
+</html>

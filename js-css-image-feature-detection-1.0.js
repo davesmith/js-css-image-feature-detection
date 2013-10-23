@@ -1,0 +1,4 @@
+/* JS CSS and Image Feature Detection
+/* Dave Smith, github.com/davesmith, 2013 October 19
+*/
+(function(){var c=document.getElementsByTagName("script"),g=c[c.length-1],d="auto",a,e=new Image(),b=new Image(),f=false,i=document.documentElement,h="className",j=" images";g.style.overflow=d;a=(g.currentStyle)?g.currentStyle.overflow:document.defaultView.getComputedStyle(g,null).getPropertyValue("overflow");if(a===d){i[h]=i[h]+" css"}e.onload=function(){i[h]=i[h]+" datauri";var k=window.InstallTrigger!==undefined;if(k){b.onerror=function(){f="off"};b.src=window.location.href+"#"+new Date();setTimeout(function(){if(f===false){i[h]=i[h]+j}},1)}else{if(this.width!==0){i[h]=i[h]+j}}};e.onerror=function(){i[h]=i[h]+j};e.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";i[h]=i[h].replace(/\bno-js\b/g,"js")}());

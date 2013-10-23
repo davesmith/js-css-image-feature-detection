@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Firefox</title>
+
+<script>
+
+var scripts = document.getElementsByTagName('script')
+    ,script = scripts[scripts.length - 1]
+    ;
+
+
+    img = new Image();
+    img.alt="asdkjhaskdjhasdkjhasdkjhasd";
+//    script.parentNode.insertBefore(img, script);
+
+
+var iShouldBeInThe = 'headElement'
+    ,butIm = '?'
+    ;
+    
+</script>
+
+</head>
+<body>
+<h1>Firefox</h1>
+
+
+<div id="test"></div>
+<script>
+
+    var sw = new Date();
+    var test = document.getElementById('test');
+    var s = 'unknown ';
+    img.onload = function(e) {
+        s = 'loaded ';
+        test.innerHTML += s + '<br />';
+    };
+    
+    img.onerror = function(e) {
+        s = 'error ';
+        test.innerHTML += s + (new Date()-sw) + '<br />';
+    };
+    
+//    img.src = "//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js";
+    img.src = "ftp://www.imagesoffdetect.com/test.jpg";
+
+    setTimeout(function() {
+        test.innerHTML += 'timeout '+s+' ' + (new Date()-sw) + '<br />';
+    },1);
+    
+</script>
+
+<h2>Test</h2>
+<p>Images off, Firefox doesn't try to get the image. Images on it does</p>
+<p>Image source is an image relative to the document</p>
+
+<h2>Outcome</h2>
+<p>Images on: Firefox fires onload</p>
+<p>Images off: Firefox fires onerror</p>
+
+</body>
+</html>

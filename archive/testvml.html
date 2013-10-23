@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Image Detect</title>
+
+
+</head>
+
+<body>
+<h1>Image Detect</h1>
+<div id="test2">a</div>
+<div id="test">a</div>
+<script>    
+    //Flag to stop rectangle from spinning. 
+    var spin;
+    document.namespaces.add('v', 'urn:schemas-microsoft-com:vml', "#default#VML");
+    // Create element in memory. 
+    var r = document.createElement("v:rect");
+    // Define width, height, color, and unique ID.
+    r.fillcolor = "blue";
+    r.strokecolor = "red";
+    r.strokeweight = "1";
+    r.style.width = 'auto';
+    r.style.height = 'auto';
+    r.style.left = '500';
+    r.style.top = '200';
+    r.style.position = 'absolute';
+    r.style.opacity = '0.2';
+    r.id = "myRect";
+    // Attach rectangle to the document at the  the specified Div. 
+    var test = document.getElementById('test');
+    test.parentNode.insertBefore(r, test);
+    
+    var test2 = document.getElementById('test2');
+    var str = '';
+    for (var i in r) {
+        str += i + '='+r[i]+'<br />';
+    }
+    
+    test2.innerHTML = r.onload+' ' + r.offsetWidth + ' ' + r.offsetHeight;// + ' ' + r.width;
+//    test2.innerHTML = r.sourceIndex;
+
+</script>
+</body>
+</html>

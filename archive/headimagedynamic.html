@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Image dynamically added to the head element</title>
+
+<script>
+
+var scripts = document.getElementsByTagName('script')
+    ,script = scripts[scripts.length - 1]
+    ;
+
+
+    img = new Image();
+    img.src = 'clear.gif';
+    script.parentNode.insertBefore(img, script);
+
+
+var iShouldBeInThe = 'headElement'
+    ,butIm = '?'
+    ;
+    
+</script>
+
+</head>
+<body>
+<h1>Image dynamically added to the head element</h1>
+
+
+<h2>Outcome</h2>
+<p>Yes: The outcome where the DOM is created with img element inside the head element</p>
+<ul>
+    <li>Firefox
+        <ul>
+            <li>24
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Internet Explorer
+        <ul>
+            <li>6
+                <ul>
+                    <li>Yes</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    
+</ul>
+</body>
+</html>

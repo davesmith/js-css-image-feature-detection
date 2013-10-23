@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+
+<title>Main Test for JS, CSS and Image Feature Detection</title>
+
+<script src="../js-css-image-feature-detection-1.0.src.js"></script>
+
+<style>
+body {padding:0 40px 40px 40px;margin:0;}
+p {margin-top:0;}
+ul.indicators {overflow:hidden;padding:0;margin:0 0 20px 0;}
+li.js,
+li.css,
+li.images,
+li.datauri {background:#f99;float:left;list-style-type:none;padding:20px;margin:0 20px 0 0;}
+
+.js .js,
+.images .images,
+.css .css,
+.datauri .datauri {background:#9f9;}
+
+</style>
+
+</head>
+
+<body>
+<p><a href="../">JS, CSS and Image Feature Detection</a></p>
+<h1>Main Test for JS, CSS and Image Feature Detection</h1>
+<ul class="indicators">
+<li class="js">JS</li>
+<li class="css">CSS</li>
+<li class="images">Images</li>
+<li class="datauri">DataURI</li>
+</ul>
+<pre style="clear:both;">&lt;html class="<span id="output">no-js</span>"&gt;</pre>
+<script>
+    var span = document.getElementById('output')
+        ,interval = 300
+        ,fn = function() {
+            span.innerHTML = document.documentElement.className;
+            setTimeout(fn, interval);
+        }
+    ;
+    fn();
+    setTimeout(fn, interval);
+</script>
+
+<h2>Notes on how to disable stuff</h2>
+<ul>
+    <li>CSS
+        <ul>
+            <li><a href="http://developer.yahoo.com/blogs/ydn/temporarily-disable-css-testing-53538.html">How to Temporarily Disable CSS for Testing by Yahoo</a></li>
+            <li>Web Accessibility Toolbar allowed testing in IE 6+</li>
+        </ul>
+    </li>
+    <li>Images
+        <ul>
+            <li><a href="https://addons.mozilla.org/en-us/firefox/addon/quickjava/?src=search">In Firefox</a></li>
+            <li>In IE using Web Accessibility Toolbar</li>
+            <li>Chrome: Settings and search for image</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Control Image</h2>
+<p><img src="beach.jpg" alt="Test Sunny Beach Image" /></p>
+
+</body>
+</html>

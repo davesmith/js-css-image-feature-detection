@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta charset="utf-8" />
+<title>Image Detect</title>
+
+<script>
+</script>
+
+</head>
+
+<body>
+<script>
+
+
+    
+    // CSS
+    var cssOn = false;
+    
+    var head = document.getElementsByTagName('head')[0];
+    head.style.overflow = 'auto';
+    
+    var y;
+    if (head.currentStyle) {
+		y = head.currentStyle['overflow'];
+    }
+	else if (window.getComputedStyle) {
+		y = document.defaultView.getComputedStyle(head,null).getPropertyValue('overflow');
+	}
+	if (y == 'auto') {
+    	cssOn = true;
+	}
+//	console.log(cssOn);
+
+var p = document.createElement('p');
+
+
+    // Images
+    var scripts = document.getElementsByTagName('script');
+    var script = scripts[scripts.length - 1];
+    var img = (document.createElement) ? document.createElement('img') : new Image();
+    img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+    img.style.position = 'absolute';
+    img.style.left = '-9999px';
+    img.onload = function() {
+        p.innerHTML = '<em>dataURI used</em>';
+        script.parentNode.insertBefore(p, script);
+        
+        if (this.offsetWidth == 1) {
+            (function(C) {
+                C.className = C.className+' images-on';
+            }(document.documentElement))
+        }
+    };
+    fallback = function() {
+        p.innerHTML = '<em>clear.gif used</em>';
+        script.parentNode.insertBefore(p, script);
+        img = (document.createElement) ? document.createElement('img') : new Image();
+        img.src = 'clear.gif';
+        img.style.position = 'absolute';
+        img.style.left = '-9999px';
+        img.onload = function() {
+            if (this.offsetWidth == 1) {
+                (function(C) {
+                    C.className = C.className+' images-on';
+                }(document.documentElement))
+            }
+        };
+        script.parentNode.insertBefore(img, script);
+    };
+    img.onerror = fallback;
+    script.parentNode.insertBefore(img, script);
+	
+	// JS
+    (function(C) {
+        var cssClass = '';
+        if (cssOn) {
+            cssClass = ' css-on';
+        }
+        C.className = C.className.replace(/\bno-js\b/g,'') + ' js'+cssClass;
+    }(document.documentElement))
+    
+    
+</script>
+<h1>Image Detect</h1>
+<p>Script that adds a class when JS, Images or CSS is on. The original purpose was to have a good JS solution for Image Replacement</p>
+
+<h2>Disable CSS</h2>
+<ul>
+<li><a href="http://developer.yahoo.com/blogs/ydn/temporarily-disable-css-testing-53538.html">Disable CSS</a></li>
+<li>Web Accessibility Toolbar allowed testing in IE 6+</li>
+</ul>
+
+<h2>Disable Images</h2>
+<ul>
+<li><a href="https://addons.mozilla.org/en-us/firefox/addon/quickjava/?src=search">Disable Images in Firefox</a></li>
+<li>Disabled Images in IE using Web Accessibility Toolbar</li>
+<li>Chrome: Settings and search for image</li>
+</ul>
+
+<h2>Research</h2>
+<ul><li><a href="http://www.html5accessibility.com/tests/imagecheck.html">Image check by Steve Faulkner</a></li>
+<li><a href="http://www.quirksmode.org/dom/getstyles.html">Get Styles by PPK</a></li>
+<li><a href="http://css-tricks.com/snippets/html/base64-encode-of-1x1px-transparent-gif/">Base64 single pixel</a>, thanks!</li>
+<li><a href="http://jonraasch.com/blog/css-data-uris-in-all-browsers">CSS Data URIs in all browsers, very nice!</a></li>
+</ul>
+
+<h2>Browser Compatibility</h2>
+<ul>
+    <li>Firefox 24
+        <ul>
+            <li>Images: Not really, turning off images is actually turning off images loaded via URL, so the dataURI still shows, there is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=331257">bug report</a></li>
+            <li>CSS: Yes</li>
+        </ul>
+    </li>
+    <li>Chrome 30
+        <ul>
+            <li>Images: Yes</li>
+            <li>CSS: Couldn't find the CSS off switch</li>
+        </ul>
+    </li>
+    <li>Opera 12
+        <ul>
+            <li>Images: Yes</li>
+            <li>CSS: Yes</li>
+        </ul>
+    </li>
+    <li>Safari 6
+        <ul>
+            <li>Images: Yes</li>
+            <li>CSS: Yes</li>
+        </ul>
+    </li>
+    <li>Internet Explorer 6
+        <ul>
+            <li>Images: Yes, clear.gif loaded instead of dataURI</li>
+            <li>CSS: Yes</li>
+        </ul>
+    </li>
+    <li>Internet Explorer 7+
+        <ul>
+            <li>Images: Yes</li>
+            <li>CSS: Yes</li>
+        </ul>
+    </li>
+</ul>
+<p><img src="beach.jpg" alt="Test Sunny Beach Image" /></p>
+</body>
+</html>

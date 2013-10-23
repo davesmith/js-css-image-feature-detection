@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Image Replacement</title>
+<style>
+img.ir {width:200px;height:100px;display:block;background:url(image.jpg) no-repeat;color:#fff;border:0;}
+h1 {font-size:1.2em;}
+h2 {font-size:1em;}
+.column {float:left;width:300px;}
+</style>
+
+
+</head>
+
+<body>
+<p>Need to use a light background image in case the alternate text cannot be styled to white</p>
+<div class="column">
+<h1>Image Fallback to Alt</h1>
+<p>&lt;img alt=&quot;Bob&quot; /&gt;</p>
+<img alt="Bob" />
+<p>&lt;img src=&quot;&quot; alt=&quot;Bob&quot; /&gt;</p>
+<img src="" alt="Bob" />
+<h2>OK</h2>
+<p>Firefox 3.6, 15</p>
+<h2>Not OK</h2>
+<p>Chrome, alternative text doesn't even show and then there is a border</p>
+</div>
+
+<div class="column">
+<h1>with Background Image</h1>
+<p>&lt;img class=&quot;ir&quot; alt=&quot;Bob&quot; /&gt;</p>
+<img class="ir" alt="Bob" />
+<p>&lt;img class=&quot;ir&quot; src=&quot;&quot; alt=&quot;Bob&quot; /&gt;</p>
+<img class="ir" src="" alt="Bob" />
+<h2>OK</h2>
+<p>Firefox 3.6, 15</p>
+<h2>Not OK</h2>
+<p>Chrome, alternative text doesn't even show and then there is a border</p>
+</div>
+
+
+</body>
+</html>
