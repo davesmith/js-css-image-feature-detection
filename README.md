@@ -3,7 +3,6 @@ JS, CSS and Image Feature Detection
 
 JavaScript that detects JS, CSS and Images in the user's browser
 
-<<<<<<< HEAD
 On page load, tests are made for each feature and classes added to the html element.
 
 ##Download
@@ -11,11 +10,11 @@ Version 1.0 [source](js-css-image-feature-detection-1.0.src.js), [minified](js-c
 
 ##Usage
 Add a no-js class to the html element:
-'''&lt;html class="no-js"&gt;'''
+```&lt;html class="no-js"&gt;```
 Add the script (nearer the top the better):
-'''&lt;script src="js-css-image-feature-detection-1.0.js"&gt;&lt;/script&gt;'''
+```&lt;script src="js-css-image-feature-detection-1.0.js"&gt;&lt;/script&gt;```
 Script and style stuff based on the detected features:
-'''&lt;html class="js css images datauri"&gt;'''
+```&lt;html class="js css images datauri"&gt;```
 
 ##Notes
 The script's focus was to provide image detection as immediately as possible without the need insert an image 
@@ -29,73 +28,73 @@ Most browsers I tested fire the onload or onerror events when images are on, and
 I used the DataURI scheme to load a 1 pixel transparent image for browsers that support it, avoiding http requests, and for those that don't the onerror event is fired.
 
 Beyond that it was about accommodating browsers that fall outside the norm.
-
+    
 ##Browser Compatibility
 Yes means works as expected
 
 * Android Browser
-** 2.3.5, 4.1.2
-*** JS: Yes
-*** CSS: Couldn't find the CSS off switch
-*** Images: Yes
-*** DataURI: Yes
+    * 2.3.5, 4.1.2
+        * JS: Yes
+        * CSS: Couldn't find the CSS off switch
+        * Images: Yes
+        * DataURI: Yes
 * Chrome
-** 30
-*** JS: Yes
-*** CSS: Couldn't find the CSS off switch, but assume would work as Safari works
-*** Images: Yes
-*** DataURI: Yes
+    * 30
+        * JS: Yes
+        * CSS: Couldn't find the CSS off switch, but assume would work as Safari works
+        * Images: Yes
+        * DataURI: Yes
 * Firefox
-** 24
-*** JS: Yes
-*** CSS: Yes
-*** Images: Yes. Note that turning off images in Firefox turns off images loaded via URL so dataURI images still show, there is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=331257">bug report</a>
-*** DataURI: Yes
-** 3.6
-*** JS: Yes
-*** CSS: Yes
-*** Images: Couldn't find on/off
-*** DataURI: Yes
+    * 24
+        * JS: Yes
+        * CSS: Yes
+        * Images: Yes. Note that turning off images in Firefox turns off images loaded via URL so dataURI images still show, there is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=331257">bug report</a>
+        * DataURI: Yes
+    * 3.6
+        * JS: Yes
+        * CSS: Yes
+        * Images: Couldn't find on/off
+        * DataURI: Yes
 * IE
-** 10 (and 7, 8 and 9 with Developer Toolbar)
-*** JS: Yes
-*** CSS: Yes
-*** Images: Yes
-*** DataURI: Yes
-** 6, 7
-*** JS: Yes
-*** CSS: Yes
-*** Images: Yes
-*** DataURI: Yes (not supported in browser)
+    * 10 (and 7, 8 and 9 with Developer Toolbar)
+        * JS: Yes
+        * CSS: Yes
+        * Images: Yes
+        * DataURI: Yes
+    * 6, 7
+        * JS: Yes
+        * CSS: Yes
+        * Images: Yes
+        * DataURI: Yes (not supported in browser)
 * Opera
-** 17
-*** JS: Yes
-*** CSS: Couldn't find the CSS off switch, but as Opera is now Webkit I assume would work as Safari works
-*** Images: Yes
-*** DataURI: Yes
-** 12.14, 11.64, 10.63
-*** JS: Yes
-*** CSS: Yes
-*** Images: Yes
-*** DataURI: ?
+    * 17
+        * JS: Yes
+        * CSS: Couldn't find the CSS off switch, but as Opera is now Webkit I assume would work as Safari works
+        * Images: Yes
+        * DataURI: Yes
+    * 12.14, 11.64, 10.63
+        * JS: Yes
+        * CSS: Yes
+        * Images: Yes
+        * DataURI: ?
 * Opera Mini
-** 7 (online Simulator)
-*** JS: Couldn't find on/off
-*** CSS: Couldn't find on/off
-*** Images: No. When images are off, images on is indicated. Caused by the onload event being called when images are on and off
-*** DataURI: Yes
+    * 7 (online Simulator)
+        * JS: Couldn't find on/off
+        * CSS: Couldn't find on/off
+        * Images: No. When images are off, images on is indicated. Caused by the onload event being called when images are on and off
+        * DataURI: Yes
 * Opera Mobile
-** 12 (emulator)
-*** JS: Couldn't find on/off
-*** CSS: Couldn't find on/off
-*** Images: Yes
-*** DataURI: Yes
+    * 12 (emulator)
+        * JS: Couldn't find on/off
+        * CSS: Couldn't find on/off
+        * Images: Yes
+        * DataURI: Yes
 * Safari
-** 6
-*** JS: Yes
-*** CSS: Yes
-*** Images: Yes
-*** DataURI: Yes
+    * 6
+        * JS: Yes
+        * CSS: Yes
+        * Images: Yes
+        * DataURI: Yes
 
 
 ##Thanks
