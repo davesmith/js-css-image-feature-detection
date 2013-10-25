@@ -1,7 +1,7 @@
 JS, CSS and Image Feature Detection
 ===================================
 
-JavaScript that detects JS, CSS and Images in the user's browser
+**JavaScript that detects JS, CSS and Images in the user's browser**
 
 Classes are added to the HTML element per detected feature.
 
