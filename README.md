@@ -3,7 +3,7 @@ JS, CSS and Image Feature Detection
 
 JavaScript that detects JS, CSS and Images in the user's browser
 
-On page load each feature is tested for and classes added to the html element.
+Classes are added to the HTML element per detected feature.
 
 ##Download
 Version 1.0 [source](js-css-image-feature-detection-1.0.src.js), [minified](js-css-image-feature-detection-1.0.js)
