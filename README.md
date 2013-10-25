@@ -10,11 +10,17 @@ Version 1.0 [source](js-css-image-feature-detection-1.0.src.js), [minified](js-c
 
 ##Usage
 Add a no-js class to the html element:
-```&lt;html class="no-js"&gt;```
+```
+&lt;html class="no-js"&gt;
+```
 Add the script (nearer the top the better):
-```&lt;script src="js-css-image-feature-detection-1.0.js"&gt;&lt;/script&gt;```
+```
+&lt;script src="js-css-image-feature-detection-1.0.js"&gt;&lt;/script&gt;
+```
 Script and style stuff based on the detected features:
-```&lt;html class="js css images datauri"&gt;```
+```
+&lt;html class="js css images datauri"&gt;
+```
 
 ##Notes
 The script's focus was to provide image detection as immediately as possible without the need insert an image 
