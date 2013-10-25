@@ -3,6 +3,7 @@ JS, CSS and Image Feature Detection
 
 JavaScript that detects JS, CSS and Images in the user's browser
 
+<<<<<<< HEAD
 On page load, tests are made for each feature and classes added to the html element.
 
 ##Download
@@ -106,3 +107,6 @@ Yes means works as expected
 
 Three men walk into a bar, one falls over, a monkey swings triumphantly
 
+=======
+See www.dave-smith.info/js-css-image-feature-detection/
+>>>>>>> edb382d25cfbb224e9416289b990edb5d6f4640a
