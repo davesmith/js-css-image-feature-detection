@@ -11,15 +11,15 @@ Version 1.0 [source](js-css-image-feature-detection-1.0.src.js), [minified](js-c
 ##Usage
 Add a no-js class to the html element:
 ```
-&lt;html class="no-js"&gt;
+<html class="no-js">
 ```
 Add the script (nearer the top the better):
 ```
-&lt;script src="js-css-image-feature-detection-1.0.js"&gt;&lt;/script&gt;
+<script src="js-css-image-feature-detection-1.0.js"></script>
 ```
 Script and style stuff based on the detected features:
 ```
-&lt;html class="js css images datauri"&gt;
+<html class="js css images datauri">
 ```
 
 ##Notes
