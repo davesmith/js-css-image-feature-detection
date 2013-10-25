@@ -42,7 +42,7 @@ Yes means works as expected
     * Chrome
         * 30
             * JS: Yes
-            * CSS: Couldn't find the CSS off switch, but assume would work as Safari works
+            * CSS: Couldn't find on/off, but assume would work as Safari works
             * Images: Yes
             * DataURI: Yes
     * Firefox
@@ -70,7 +70,7 @@ Yes means works as expected
     * Opera
         * 17
             * JS: Yes
-            * CSS: Couldn't find the CSS off switch, but as Opera is now Webkit I assume would work as Safari works
+            * CSS: Couldn't find on/off, but as Opera is now Webkit I assume would work as Safari works
             * Images: Yes
             * DataURI: Yes
         * 12.14, 11.64, 10.63
@@ -88,7 +88,7 @@ Yes means works as expected
     * Android Browser
         * 2.3.5, 4.1.2
             * JS: Yes
-            * CSS: Couldn't find the CSS off switch
+            * CSS: Couldn't find on/off
             * Images: Yes
             * DataURI: Yes
     * Opera Mini
