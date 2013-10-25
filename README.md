@@ -103,6 +103,12 @@ Yes means works as expected
             * CSS: Couldn't find on/off
             * Images: Yes
             * DataURI: Yes
+    * Safari
+        * 7 (simulator)
+            * JS: Yes
+            * CSS: Couldn't find on/off
+            * Images: Couldn't find on/off
+            * DataURI: Yes
 
 
 ##Thanks
