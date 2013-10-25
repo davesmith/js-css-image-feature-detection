@@ -38,69 +38,71 @@ Beyond that it was about accommodating browsers that fall outside the norm.
 ##Browser Compatibility
 Yes means works as expected
 
-* Android Browser
-    * 2.3.5, 4.1.2
-        * JS: Yes
-        * CSS: Couldn't find the CSS off switch
-        * Images: Yes
-        * DataURI: Yes
-* Chrome
-    * 30
-        * JS: Yes
-        * CSS: Couldn't find the CSS off switch, but assume would work as Safari works
-        * Images: Yes
-        * DataURI: Yes
-* Firefox
-    * 24
-        * JS: Yes
-        * CSS: Yes
-        * Images: Yes. Note that turning off images in Firefox turns off images loaded via URL so dataURI images still show, there is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=331257">bug report</a>
-        * DataURI: Yes
-    * 3.6
-        * JS: Yes
-        * CSS: Yes
-        * Images: Couldn't find on/off
-        * DataURI: Yes
-* IE
-    * 10 (and 7, 8 and 9 with Developer Toolbar)
-        * JS: Yes
-        * CSS: Yes
-        * Images: Yes
-        * DataURI: Yes
-    * 6, 7
-        * JS: Yes
-        * CSS: Yes
-        * Images: Yes
-        * DataURI: Yes (not supported in browser)
-* Opera
-    * 17
-        * JS: Yes
-        * CSS: Couldn't find the CSS off switch, but as Opera is now Webkit I assume would work as Safari works
-        * Images: Yes
-        * DataURI: Yes
-    * 12.14, 11.64, 10.63
-        * JS: Yes
-        * CSS: Yes
-        * Images: Yes
-        * DataURI: ?
-* Opera Mini
-    * 7 (online Simulator)
-        * JS: Couldn't find on/off
-        * CSS: Couldn't find on/off
-        * Images: No. When images are off, images on is indicated. Caused by the onload event being called when images are on and off
-        * DataURI: Yes
-* Opera Mobile
-    * 12 (emulator)
-        * JS: Couldn't find on/off
-        * CSS: Couldn't find on/off
-        * Images: Yes
-        * DataURI: Yes
-* Safari
-    * 6
-        * JS: Yes
-        * CSS: Yes
-        * Images: Yes
-        * DataURI: Yes
+* Desktop
+    * Chrome
+        * 30
+            * JS: Yes
+            * CSS: Couldn't find the CSS off switch, but assume would work as Safari works
+            * Images: Yes
+            * DataURI: Yes
+    * Firefox
+        * 24
+            * JS: Yes
+            * CSS: Yes
+            * Images: Yes. Note that turning off images in Firefox turns off images loaded via URL so dataURI images still show, there is a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=331257">bug report</a>
+            * DataURI: Yes
+        * 3.6
+            * JS: Yes
+            * CSS: Yes
+            * Images: Couldn't find on/off
+            * DataURI: Yes
+    * IE
+        * 10 (and 7, 8 and 9 with Developer Toolbar)
+            * JS: Yes
+            * CSS: Yes
+            * Images: Yes
+            * DataURI: Yes
+        * 6, 7
+            * JS: Yes
+            * CSS: Yes
+            * Images: Yes
+            * DataURI: Yes (not supported in browser)
+    * Opera
+        * 17
+            * JS: Yes
+            * CSS: Couldn't find the CSS off switch, but as Opera is now Webkit I assume would work as Safari works
+            * Images: Yes
+            * DataURI: Yes
+        * 12.14, 11.64, 10.63
+            * JS: Yes
+            * CSS: Yes
+            * Images: Yes
+            * DataURI: ?
+    * Safari
+        * 6
+            * JS: Yes
+            * CSS: Yes
+            * Images: Yes
+            * DataURI: Yes
+* Mobile
+    * Android Browser
+        * 2.3.5, 4.1.2
+            * JS: Yes
+            * CSS: Couldn't find the CSS off switch
+            * Images: Yes
+            * DataURI: Yes
+    * Opera Mini
+        * 7 (online Simulator)
+            * JS: Couldn't find on/off
+            * CSS: Couldn't find on/off
+            * Images: No. When images are off, images on is indicated. Caused by the onload event being called when images are on and off
+            * DataURI: Yes
+    * Opera Mobile
+        * 12 (emulator)
+            * JS: Couldn't find on/off
+            * CSS: Couldn't find on/off
+            * Images: Yes
+            * DataURI: Yes
 
 
 ##Thanks
